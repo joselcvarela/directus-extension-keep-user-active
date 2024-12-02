@@ -1,5 +1,9 @@
+export default ({ embed }) => {
+  embed("body", () =>
+    `
+<script>
 (function () {
-  const MIN = 60 * 1000;
+  const MIN = 1000;
 
   document.addEventListener("pointermove", debounceActivity());
 
@@ -21,13 +25,7 @@
     };
   }
 })();
-
-export default {
-  id: "userActivity",
-  name: "User Activity",
-  description: "Keeps user logged in",
-  types: [""],
-  icon: "",
-  component: {},
-  options: [],
+</script>
+    `.trim()
+  );
 };

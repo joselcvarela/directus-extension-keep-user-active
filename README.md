@@ -1,18 +1,17 @@
 # directus-extension-keep-user-active
 
-Directus App extension to keep user active by refreshing session every 5 minutes
+Directus Embed hook to keep user active by refreshing session every 5 minutes
 
 # Usage
 
-Run:
-
-```sh
-npm run build
-```
-
-Copy `dist` and `package.json` into `directus/extensions/directus-extension-keep-user-active`
+Copy `src` and `package.json` into `directus/extensions/directus-extension-keep-user-active`
 
 # Notes
 
-Despite this being declared as a Display, it basically is a way to load JS code on client side.
+You may need to set CSP configuration as follows in order to allow the execution of inline code:
+
+```
+CONTENT_SECURITY_POLICY_DIRECTIVES__SCRITP_SRC: "array:script-src,'self','unsafe-eval','unsafe-inline'"
+```
+
 That's how we can refresh session every 5 minutes.
